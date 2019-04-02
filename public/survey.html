@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Survey</title>
+</head>
+<body>
+  <h1>Survey</h1>
+  <!-- <form action="/api/friends" method="post"> -->
+  <form>
+    <div>
+      <p>Question 1</p>
+
+      <input type="radio" name="ans1" value="1">
+      <input type="radio" name="ans1" value="2">
+      <input type="radio" name="ans1" value="3">
+      <input type="radio" name="ans1" value="4">
+      <input type="radio" name="ans1" value="5">
+    </div>
+    <div>
+      <p>Question 2</p>
+
+      <input type="radio" name="ans2" value="1">
+      <input type="radio" name="ans2" value="2">
+      <input type="radio" name="ans2" value="3">
+      <input type="radio" name="ans2" value="4">
+      <input type="radio" name="ans2" value="5">
+    </div>
+    <div>
+      <p>Question 3</p>
+
+      <input type="radio" name="ans3" value="1">
+      <input type="radio" name="ans3" value="2">
+      <input type="radio" name="ans3" value="3">
+      <input type="radio" name="ans3" value="4">
+      <input type="radio" name="ans3" value="5">
+    </div>
+    <input type="submit">
+  </form>
+
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script>
+    $('form').submit( function(event) {
+      event.preventDefault();
+
+      $.ajax({
+        url: "/api/friends",
+        method: "POST",
+        // data: { 
+        //   ans1: $("input[name=ans1]:checked").val(),
+        //   ans2: $("input[name=ans2]:checked").val(),
+        //   ans3: $("input[name=ans3]:checked").val(),
+        // }
+        data: $(this).serialize()
+      }).then(
+        function(result){ console.log(result) }, 
+        function(jqXHR, status){ console.log(status) }
+      )
+      console.log("submitting form")
+    })
+  </script>
+</body>
+</html>
