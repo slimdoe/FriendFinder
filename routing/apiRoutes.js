@@ -20,7 +20,6 @@ router.post('/friends', function (req, res) {
 
         if (closesFriend > diff) {
             closesFriend = diff
-            closesFriendIndex = index
         }
 
         console.log(score, otherScore)

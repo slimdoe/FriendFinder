@@ -9,6 +9,8 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.urlencoded({extended: true}))
 
+app.use ('/static',express.static(path.join(_dirname,'app/static' )))
+
 const htmlRoutes = require('./app/routing/htmlRoutes')
 const apiRoutes = require("./app/routing/apiRoutes")
 
